@@ -117,7 +117,7 @@ export const StyledFormArea = styled.div`
     padding: 45px 55px;
 `;
 
-export const StyledFormButton = styled.button`
+export const StyledFormButton = styled(Link)`
     padding: 10px;
     width: 150px;
     background-color:transparent;
@@ -126,6 +126,7 @@ export const StyledFormButton = styled.button`
     border-radius: 25px;
     color: ${colors.theme};
     transition: ease-in-out 0.3s;
+    text-decoration: none;
     outline: 0;
     &:hover{
         background-color: ${colors.theme};

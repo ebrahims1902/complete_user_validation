@@ -25,7 +25,7 @@ const Dashboard = () => {
                     Sample Page
                 </StyledSubTitle>
                 <ButtonGroup>
-                    <StyledButton to='#'>Logout</StyledButton>
+                    <StyledButton to='/'>Logout</StyledButton>
                 </ButtonGroup>
             </StyledFormArea>
             

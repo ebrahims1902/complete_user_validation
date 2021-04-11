@@ -11,7 +11,12 @@ import Logo1 from './../assets/logo1.png';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-const Signup = () =>{
+// import {connect} from 'react-redux';
+// import {signupUser} from './../auth/actions/userActions';
+// import {useHistore} from 'react-router-dom'; 
+
+const Signup = ({signupUser}) =>{
+    // const history = useHistore();
     return(
         <div>
             <StyledFormArea>
@@ -34,8 +39,11 @@ const Signup = () =>{
                             mobileNo: Yup.string().required("Required").matches(phoneRegExp, 'Phone number is not valid').min(8, "Invalid Phone Number").max(10, "Invalid Phone Number")
                         })
                     }
-                    onSubmit={(values, {setSubmitting})=>{
-                        console.log(values);
+                    // onSubmit={(values, {setSubmitting, setFieldError})=>{
+                    //     signupUser(values, history, setFieldError, setSubmitting)
+                    // }}
+                    onSubmit={(values, {setSubmitting, setFieldError})=>{
+                        signupUser(values, setFieldError, setSubmitting)
                     }}
                 >
                     {({isSubmitting})=>(
@@ -76,7 +84,7 @@ const Signup = () =>{
                                 icon={<FiLock />}
                             />
                             <ButtonGroup>
-                                {!isSubmitting && <StyledFormButton type="submit">
+                                {!isSubmitting && <StyledFormButton type="submit" to="/dashboard">
                                     Signup
                                 </StyledFormButton>}
                                 {isSubmitting && (
@@ -100,4 +108,5 @@ const Signup = () =>{
     )
 }
 
+// export default connect(null, {signupUser})(Signup);
 export default Signup;
